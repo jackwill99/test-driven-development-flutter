@@ -20,14 +20,16 @@ void main() {
     test("Testing get fav promotion", () async {
       // arrange
       final tPromoModel = PromoModel(
-          duration: DateTime.now(), eventName: "eventName", poster: 'poster');
+        duration: DateTime.now(),
+        eventName: "eventName",
+        poster: 'poster',
+      );
       when(repo.getFavPromo()).thenAnswer((_) async => tPromoModel);
 
       // action
       final result = await usecase.getFavPromo();
 
       // assert
-
       expect(result, tPromoModel);
     });
   });

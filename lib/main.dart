@@ -11,7 +11,7 @@ void main() {
 class MyApp extends StatelessWidget {
   MyApp({super.key});
 
-  final usecase = Get.put(PromoController());
+  final promoUsecase = Get.put(PromoController());
 
   @override
   Widget build(BuildContext context) {
@@ -20,11 +20,11 @@ class MyApp extends StatelessWidget {
       initialRoute: "/",
       home: Scaffold(
         body: const Center(
-          child: Text("Center text"),
+          child: Text("Example of Clean Architecture"),
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            usecase.saveFavPromo(
+            promoUsecase.saveFavPromo(
               promo: PromoModel(
                 duration: DateTime.now(),
                 eventName: "eventName",

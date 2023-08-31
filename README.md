@@ -292,3 +292,101 @@ class PromoUseCase {
 }
 
 ```
+
+## Presentation
+
+I won't say anymore about pages and widgets. The main topic is about the `state`. You can use any
+state management of the presentation layer. Here, we will use `Getx State Control`.
+
+We will control all of `Business logic of the business object model` in the controller and they are
+already executed in the business use-case. So in the controller, **we will assign Business use-case
+when we inject our controller.**
+
+```dart
+// presentation/state/promo_controller.dart
+
+import 'package:get/get.dart';
+
+import '../../data/repositories/promo_repository_impl.dart';
+import '../../domain/entities/promo.dart';
+import '../../domain/usecases/promo_usecase.dart';
+
+class PromoController extends GetxController {
+  late PromoUseCase _promoUseCase;
+
+  @override
+  onInit() {
+    super.onInit();
+    _promoUseCase = PromoUseCase(PromoRepositoryImpl());
+  }
+
+  Future<Promo> getFavPromo() async {
+    return _promoUseCase.getFavPromo();
+  }
+
+  Future<Promo> getExpiryPromo() async {
+    return _promoUseCase.getExpiryPromo();
+  }
+
+  Future<void> saveFavPromo({required Promo promo}) async {
+    _promoUseCase.saveFavPromo(promo: promo);
+  }
+
+  Future<void> delFavPromo({required Promo promo}) async {
+    _promoUseCase.delFavPromo(promo: promo);
+  }
+}
+
+```
+
+In main.dart, we will inject the controller and execute when we click the floating button.
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:get/instance_manager.dart';
+import 'package:test_driven_development/promo/data/models/promo_model.dart';
+import 'package:test_driven_development/promo/presentation/state/promo_controller.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  MyApp({super.key});
+
+  final promoUsecase = Get.put(PromoController());
+
+  @override
+  Widget build(BuildContext context) {
+    return GetMaterialApp(
+      color: Colors.black,
+      initialRoute: "/",
+      home: Scaffold(
+        body: const Center(
+          child: Text("Example of Clean Architecture"),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            promoUsecase.saveFavPromo(
+              promo: PromoModel(
+                duration: DateTime.now(),
+                eventName: "eventName",
+                poster: 'poster',
+              ),
+            );
+          },
+          child: const Icon(Icons.add),
+        ),
+      ),
+    );
+  }
+}
+
+```
+
+## Testing
+
+For testing, you should learn how to unit test in flutter
+and then [here](https://dev.to/infiniteoverflow/a-comprehensive-guide-to-mockito-in-flutter-1od0)
+will discuss about mock for testing.

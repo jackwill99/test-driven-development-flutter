@@ -1,6 +1,7 @@
 import '../entities/promo.dart';
 import '../repositories/promo_repository.dart';
 
+// Executing the business logic repo to get the data from sources
 class PromoUseCase {
   final PromoRepository _promoRepository;
 
