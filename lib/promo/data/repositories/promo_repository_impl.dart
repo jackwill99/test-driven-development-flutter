@@ -9,9 +9,7 @@ import '../models/promo_model.dart';
 class PromoRepositoryImpl implements PromoRepository {
   late ApiService _apiServices;
 
-  PromoRepositoryImpl() {
-    _apiServices = ApiService();
-  }
+  PromoRepositoryImpl(this._apiServices);
 
   @override
   Future<void> delFavPromo({required Promo promo}) async {

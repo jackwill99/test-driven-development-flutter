@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:test_driven_development/promo/data/data_sources/api_service.dart';
 
 import '../../data/repositories/promo_repository_impl.dart';
 import '../../domain/entities/promo.dart';
@@ -10,7 +11,8 @@ class PromoController extends GetxController {
   @override
   onInit() {
     super.onInit();
-    _promoUseCase = PromoUseCase(PromoRepositoryImpl());
+    final apiService = ApiService();
+    _promoUseCase = PromoUseCase(PromoRepositoryImpl(apiService));
   }
 
   Future<Promo> getFavPromo() async {

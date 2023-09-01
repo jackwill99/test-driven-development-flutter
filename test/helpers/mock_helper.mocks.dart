@@ -6,6 +6,10 @@
 import 'dart:async' as _i4;
 
 import 'package:mockito/mockito.dart' as _i1;
+import 'package:test_driven_development/promo/data/data_sources/api_service.dart'
+    as _i5;
+import 'package:test_driven_development/promo/data/models/promo_model.dart'
+    as _i6;
 import 'package:test_driven_development/promo/domain/entities/promo.dart'
     as _i2;
 import 'package:test_driven_development/promo/domain/repositories/promo_repository.dart'
@@ -90,4 +94,52 @@ class MockPromoRepository extends _i1.Mock implements _i3.PromoRepository {
         returnValue: _i4.Future<void>.value(),
         returnValueForMissingStub: _i4.Future<void>.value(),
       ) as _i4.Future<void>);
+}
+
+/// A class which mocks [ApiService].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockApiService extends _i1.Mock implements _i5.ApiService {
+  MockApiService() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i4.Future<void> delFavPromo({required _i2.Promo? promo}) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #delFavPromo,
+          [],
+          {#promo: promo},
+        ),
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
+  @override
+  _i4.Future<void> saveFavPromo({required _i2.Promo? promo}) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #saveFavPromo,
+          [],
+          {#promo: promo},
+        ),
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
+  @override
+  _i4.Future<_i6.PromoModel?> getExpiryPromo() => (super.noSuchMethod(
+        Invocation.method(
+          #getExpiryPromo,
+          [],
+        ),
+        returnValue: _i4.Future<_i6.PromoModel?>.value(),
+      ) as _i4.Future<_i6.PromoModel?>);
+  @override
+  _i4.Future<_i6.PromoModel?> getFavPromo() => (super.noSuchMethod(
+        Invocation.method(
+          #getFavPromo,
+          [],
+        ),
+        returnValue: _i4.Future<_i6.PromoModel?>.value(),
+      ) as _i4.Future<_i6.PromoModel?>);
 }
