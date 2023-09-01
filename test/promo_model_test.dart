@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter_test/flutter_test.dart';
 import 'package:test_driven_development/promo/data/models/promo_model.dart';
 import 'package:test_driven_development/promo/domain/entities/promo.dart';
@@ -20,7 +18,7 @@ void main() {
 
   test("Should return a valid model from json", () async {
     // arrange
-    Map<String, dynamic> map = json.decode(readJson("promo_dummy.json"));
+    Map<String, dynamic> map = readJson("promo_dummy.json");
 
     // act
     final result = PromoModel.fromJson(map);
@@ -31,7 +29,7 @@ void main() {
 
   test("Should return a json from map", () async {
     // arrange
-    Map<String, dynamic> map = json.decode(readJson("promo_dummy.json"));
+    Map<String, dynamic> map = readJson("promo_dummy.json");
 
     // act
     final result = tPromoModel.toJson();

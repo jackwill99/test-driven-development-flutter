@@ -8,6 +8,7 @@ import 'helpers/mock_helper.mocks.dart';
 void main() {
   late MockPromoRepository repo;
   late PromoUseCase usecase;
+
   setUp(() {
     repo = MockPromoRepository();
     usecase = PromoUseCase(repo);

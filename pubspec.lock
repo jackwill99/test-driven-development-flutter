@@ -177,6 +177,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.3.2"
+  dio:
+    dependency: "direct main"
+    description:
+      name: dio
+      sha256: ce75a1b40947fea0a0e16ce73337122a86762e38b982e1ccb909daa3b9bc4197
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.3.2"
   equatable:
     dependency: "direct main"
     description:
@@ -259,14 +267,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.3.1"
-  http:
+  http_mock_adapter:
     dependency: "direct main"
     description:
-      name: http
-      sha256: "759d1a329847dd0f39226c688d3e06a6b8679668e350e2891a6474f8b4bb8525"
+      name: http_mock_adapter
+      sha256: "07e78a5b64410ff8404aee2f8889ebff08def0c752b85a3945dec2029a6e1110"
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.0"
+    version: "0.6.0"
   http_multi_server:
     dependency: transitive
     description:
@@ -315,6 +323,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.1"
+  logger:
+    dependency: transitive
+    description:
+      name: logger
+      sha256: "66cb048220ca51cf9011da69fa581e4ee2bed4be6e82870d9e9baae75739da49"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.1"
   logging:
     dependency: transitive
     description:

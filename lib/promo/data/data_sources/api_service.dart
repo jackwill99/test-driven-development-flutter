@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:test_driven_development/http/http_client.dart';
 
 import '../../domain/entities/promo.dart';
 import '../models/promo_model.dart';
@@ -32,14 +33,13 @@ class ApiService {
   }
 
   Future<PromoModel?> getFavPromo() async {
-    await Future.delayed(const Duration(seconds: 10));
-    if (kDebugMode) {
-      print("get Fav Promo pass");
+    final response = await ClientHttp.get("http://example.com");
+    if (response.statusCode == 200) {
+      if (kDebugMode) {
+        print("get Fav Promo pass");
+      }
+      return PromoModel.fromJson(response.data);
     }
-    return PromoModel(
-      eventName: "expiryEventName",
-      poster: "expiryPromo",
-      duration: 2,
-    );
+    return null;
   }
 }
