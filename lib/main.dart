@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
           onPressed: () {
             promoUsecase.saveFavPromo(
               promo: PromoModel(
-                duration: DateTime.now(),
+                duration: 2,
                 eventName: "eventName",
                 poster: 'poster',
               ),

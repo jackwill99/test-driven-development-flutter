@@ -27,7 +27,7 @@ class ApiService {
     return PromoModel(
       eventName: "eventName",
       poster: "promo",
-      duration: DateTime.now(),
+      duration: 1,
     );
   }
 
@@ -39,7 +39,7 @@ class ApiService {
     return PromoModel(
       eventName: "expiryEventName",
       poster: "expiryPromo",
-      duration: DateTime.now(),
+      duration: 2,
     );
   }
 }

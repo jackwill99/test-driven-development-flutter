@@ -4,7 +4,7 @@ import 'package:equatable/equatable.dart';
 abstract class Promo extends Equatable {
   final String eventName;
   final String poster;
-  final DateTime duration;
+  final int duration;
 
   const Promo({
     required this.eventName,

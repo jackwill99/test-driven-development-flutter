@@ -1,13 +1,10 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:test_driven_development/promo/data/models/promo_model.dart';
-import 'package:test_driven_development/promo/domain/repositories/promo_repository.dart';
 import 'package:test_driven_development/promo/domain/usecases/promo_usecase.dart';
 
-import 'promo_test.mocks.dart';
+import 'helpers/mock_helper.mocks.dart';
 
-@GenerateMocks([PromoRepository])
 void main() {
   late MockPromoRepository repo;
   late PromoUseCase usecase;
@@ -16,14 +13,15 @@ void main() {
     usecase = PromoUseCase(repo);
   });
 
-  group("promo test", () {
-    test("Testing get fav promotion", () async {
+  final tPromoModel = PromoModel(
+    duration: 3,
+    eventName: "Aug Promo",
+    poster: 'Aug',
+  );
+
+  group("Use-case test of Promotion", () {
+    test("Should return the fav promotion from the repository", () async {
       // arrange
-      final tPromoModel = PromoModel(
-        duration: DateTime.now(),
-        eventName: "eventName",
-        poster: 'poster',
-      );
       when(repo.getFavPromo()).thenAnswer((_) async => tPromoModel);
 
       // action
