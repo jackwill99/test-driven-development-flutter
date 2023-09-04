@@ -385,6 +385,16 @@ class MyApp extends StatelessWidget {
 
 ```
 
+*Here is a quote from the
+book **Clean Architecture: A Craftsman’s Guide to Software Structure and Design** :*
+
+`The architect can employ the Single Responsibility Principle and the Common Closure Principle to separate those things that change for different reasons, and to collect those things that change for the same reasons—given the context of the intent of the system.
+User interfaces change for reasons that have nothing to do with business rules. Business rules themselves may be closely tied to the application, or they may be more general. The database, the query language, and even the schema are technical details that have nothing to do with the business rules or the UI.
+Thus we find the system divided into decoupled horizontal layers— the application-independent business rules, Application-specific business rules, UI, and the Database.`
+
+Later in the book **Robert Martin** describes in detail how to build these 4 layers:
+entities <- use-cases <- interface adapters <- frameworks and drivers.
+
 ## Testing
 
 For testing, you should learn how to unit test in flutter
